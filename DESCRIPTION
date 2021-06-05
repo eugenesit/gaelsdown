@@ -1,28 +1,21 @@
-Package: thesisdown
-Title: An updated R Markdown thesis template using the bookdown package
-Version: 0.2.0
-Authors@R: c(
-    person("Chester", "Ismay", email = "chester.ismay@gmail.com", role = c("cre", "aut")),
-    person("Nick", "Solomon", email = "nick@nicksolomon.me", role = "aut"))
-Description: Using the bookdown package and LaTeX and Word thesis templates from
-    Reed College, this package aims to encourage reproducible research using
-    simple Markdown syntax while embedding all of the R code to produce plots
-    and analyses as well.
-Maintainer: Chester Ismay <chester.ismay@gmail.com>
+Package: gaelsdown
+Title: R Markdown thesis for Queen's University template using the bookdown package
+Version: 0.0.1
+Author: Eugene Sit
+Description: Using the thesisdown package as a guide and LaTeX and Word thesis
+    templates from Queen's University, this package aims to encourage reproducible
+    research using simple Markdown syntax while embedding all of the R code to
+    produce plots and analyses as well.
+Maintainer: Eugene Sit <eugene.sit@queensu.ca>
 Depends:
-    R (>= 3.2.0)
-Imports: 
+    R (>= 3.2.0),
+    remotes,
     dplyr,
     ggplot2,
     bookdown,
-    knitr,
-    here,
-    R.utils
-Suggests:
-    remotes,
-    usethis
-License: MIT + file LICENSE
+    knitr
+License: MIT
 Encoding: UTF-8
 LazyData: true
-SystemRequirements: pandoc (>= 1.18) - https://pandoc.org
+SystemRequirements: pandoc (>= 1.18) - http://pandoc.org
 RoxygenNote: 7.1.1
