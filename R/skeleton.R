@@ -1,5 +1,5 @@
 # from https://github.com/rstudio/bookdown/blob/master/R/utils.R
-gaelsown_file <- function(...) {
+gaelsdown_file <- function(...) {
   system.file(..., package = 'gaelsdown', mustWork = TRUE)
 }
 
