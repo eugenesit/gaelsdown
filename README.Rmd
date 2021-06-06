@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 
 # gaelsdown <img src="gaelsdown.png" align="right" width=200 />
 
-This project is a branch of Chester Ismay's [thesisdown](https://github.com/ismayc/thesisdown) package. The template conforms to the Queen's University [style and form requirements](https://github.com/eugenesit/gaelsdown/docs/SGS_General_Forms_of_Theses_ March2017.pdf) using LaTeX templates from the [Queen's Computing Graduate Society](https://flux.cs.queensu.ca/gcs/document-preparation/latex/thesis-template-2/).
+This project is a branch of Chester Ismay's [thesisdown](https://github.com/ismayc/thesisdown) package. The template conforms to the Queen's University [style and form requirements](https://github.com/eugenesit/gaelsdown/blob/master/docs/SGS_General_Forms_of_Theses_March2017.pdf) using LaTeX templates from the [Queen's Computing Graduate Society](https://flux.cs.queensu.ca/gcs/document-preparation/latex/thesis-template-2/).
 
 Currently, the PDF and gitbook versions are fully-functional.  The word and epub versions are developmental, have no templates behind them, and are essentially calls to the appropriate functions in bookdown.
 

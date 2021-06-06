@@ -6,7 +6,7 @@
 This project is a branch of Chester Ismay’s
 [thesisdown](https://github.com/ismayc/thesisdown) package. The template
 conforms to the Queen’s University [style and form
-requirements](https://github.com/eugenesit/gaelsdown/docs/SGS_General_Forms_of_Theses_%20March2017.pdf)
+requirements](https://github.com/eugenesit/gaelsdown/blob/master/docs/SGS_General_Forms_of_Theses_March2017.pdf)
 using LaTeX templates from the [Queen’s Computing Graduate
 Society](https://flux.cs.queensu.ca/gcs/document-preparation/latex/thesis-template-2/).
 
