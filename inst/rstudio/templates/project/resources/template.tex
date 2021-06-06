@@ -1,0 +1,227 @@
+%******************************************************************************
+% This borrows heavily from a LaTeX template for Queen's theses
+% developed by Bob Burke (BB), Dean Jin (DJ), Michelle L. Crane (MLC),
+% and from the Reed College thesis template by Sam Noble (SN).
+%******************************************************************************
+% Template written in June 2021 for Queen's University requirements,
+% to be used in the package 'eugensit/gaelsdown' by Eugene Sit (ESS),
+% an adaptation of 'ismayc/thesisdown' developed by Chester Ismay (CII).
+%******************************************************************************
+% The pdf document (March 2017) listing the requirements for Queen's
+% University theses has been added to this package as a reference.
+%******************************************************************************
+
+% *****************************************************************************
+% PREAMBLE
+% *****************************************************************************
+%
+% Required for all .tex files, points to appropriate .cls file.
+% Set to one-sided according to Queen's University template rules.
+\documentclass[12pt, oneside]{queensuthesis}
+% Packages are extensions to the basic LaTeX functions. Whatever you
+% want to typeset, there is probably a package out there for it.
+% Chemistry (chemtex), screenplays, you name it.
+% Check out CTAN to see: http://www.ctan.org/
+
+\usepackage{graphicx}                  % including graphics
+\usepackage{amsmath}                   % math notation
+\numberwithin{equation}{chapter}       % equations will be numbered by section
+
+\usepackage{amsthm}                    % theorem notation
+\usepackage{cases}                     % to make numbered cases (equations)
+\usepackage[hyphens]{url}              % allow breaks after url hyphens
+\usepackage{rotating}                  % rotating figures and tables
+\usepackage{longtable}                 % Warning: there may be issues with longtable and footer margins
+\usepackage{booktabs}
+\usepackage{setspace}                  % for use of \singlespacing and \doublespacing
+\doublespacing
+
+% Added by ESS
+
+\usepackage[notlof,notlot,notbib]{tocbibind} % include ToC in ToC for easier navigation
+\usepackage[defaultlines=3,all]{nowidow}     % avoid straggler lines at page breaks
+
+\usepackage{etoolbox}
+\preto\longtable{\par\singlespacing}
+\preto\caption{\par\singlespacing}
+
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+
+% End of ESS addition
+
+% Added by CII
+\usepackage{hyperref}                  % for links within the document
+\usepackage{lmodern}                   % for fonts
+\usepackage{float}                     % package for \floatplacement
+% \floatplacement{figure}{H}             % {H} specifies to place figures "here"
+
+% for formatting Table of Contents entry, example: Chapter 1 Introduction
+\usepackage{tocloft}
+\renewcommand{\cftchappresnum}{Chapter }
+\renewcommand{\cftchapaftersnum}{:}
+\renewcommand{\cftchapnumwidth}{7em}
+
+% for formatting Table of Contents entry for Appendix, example: Appendix 1: Stuff
+\newcommand*\updatechaptername{%
+   \addtocontents{toc}{\protect\renewcommand*\protect\cftchappresnum{Appendix }}
+}
+
+% CII (Thanks, Hadley!)
+% Use ref for internal links
+\renewcommand{\hyperref}[2][???]{\autoref{#1}}
+\def\chapterautorefname{Chapter}
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Subsection}
+
+\usepackage{caption}                   % figure and table caption settings
+
+% End of CII addition
+
+\captionsetup{labelsep=period, labelfont=bf, width=6in, font=footnotesize}
+
+% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+
+% the following code allows pandoc to inject code highlighting environments, e.g. Shaded.
+% h/t coatless
+$if(highlighting-macros)$
+  $highlighting-macros$
+$endif$
+
+\raggedbottom                          % Added by ESS
+
+% Below sections by DJ/MLC
+
+%******************************************************************************
+% HEADINGS
+%******************************************************************************
+
+% This changes the headings go that they are prettier
+% and can be commented out for traditional headings.
+\usepackage{sectsty}
+
+\allsectionsfont{\bfseries}            % set all the section font to bfseries
+\chapterfont{\centering\Large}         % set the sizes of chapters, sections ...
+\sectionfont{\normalsize}
+\subsectionfont{\normalsize}
+
+%******************************************************************************
+% FOOTNOTES
+%******************************************************************************
+
+\interfootnotelinepenalty=10000 % This line stops footnotes from splitting onto two pages.
+
+%******************************************************************************
+% TITLE
+%******************************************************************************
+
+% Following sections added by CII
+% Commands passed between YAML (index.Rmd) and LaTeX for title
+% This tells LaTeX where to look for the info
+
+\title{$title$}
+\author{$author$}
+\dept{$dept$}
+\degree{$degree$}
+\submitdate{$submitdate$}
+\copyrightyear{$copyrightyear$}
+
+% Copied from knitr
+% maxwidth is the original width if it's less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\renewcommand{\contentsname}{Table of Contents}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% End of CII addition
+
+\setlength{\parskip}{0pt}
+
+%******************************************************************************
+% DOCUMENT
+%******************************************************************************
+%
+% Content of the thesis below; see corresponding sections in queensuthesis.cls
+% for formatting instructions (ESS). Modify the included sections as necessary!
+% Substitute Header/ToC entry in \prefacesection{}, and $preface$
+
+\begin{document}
+
+% Everything below added by CII
+
+\frontmatter                           % frontmatter pages are roman-numbered
+\pagestyle{plain}                      % change to empty to remove page numbering
+
+$if(title)$
+  \maketitle
+$endif$
+
+$if(abstract)$
+  \prefacesection{Abstract}{$abstract$}
+$endif$
+
+$if(layabstract)$
+  \prefacesection{Lay Abstract}{$layabstract$}
+$endif$
+
+$if(coauthorship)$
+  \prefacesection{Co-Authorship}{$coauthorship$}
+$endif$
+
+$if(acknowledgements)$
+  \prefacesection{Acknowledgements}{$acknowledgements$}
+$endif$
+
+% toc and toc_depth arguments are passed along by the pdf_book function
+% called from bookdown package in R
+$if(toc)$
+  \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+  \setcounter{tocdepth}{$toc-depth$}
+  \tableofcontents
+  \clearpage
+$endif$
+
+$if(lot)$
+  \listoftables
+  \addcontentsline{toc}{chapter}{List of Tables} % include a line in toc for lot
+  \clearpage
+$endif$
+
+$if(lof)$
+  \listoffigures
+  \addcontentsline{toc}{chapter}{List of Figures} % include a line in toc for lof
+  \clearpage
+$endif$
+
+$if(abbreviations)$
+  \prefacesection{List of Abbreviations and Symbols}{$abbreviations$}
+$endif$
+
+$if(nomenclature)$
+  \prefacesection{Nomenclature and Glossary}{$nomenclature$}
+$endif$
+
+\mainmatter % here the regular arabic numbering starts
+\pagestyle{fancy} % turns page numbering back on
+
+$body$
+
+\end{document}
