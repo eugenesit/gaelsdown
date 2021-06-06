@@ -63,7 +63,7 @@ If you need a graphic or tabular material to be part of the text, you can just p
 
 In the **R** chunk below, we will load in a picture stored as `queens.png` in our main directory.  We then give it the caption of "Queen's logo", the label of "queenslogo", and specify that this is a figure.  Make note of the different **R** chunk options that are given in the R Markdown file (not shown in the knitted document).
 
-```{r queenslogo, fig.cap="Queen's logo"}
+```{r queenslogo, fig.cap="Queen's logo", fig.align="center"}
 include_graphics(path = "figure/queens.png")
 ```
 
