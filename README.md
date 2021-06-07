@@ -16,26 +16,20 @@ and **R** code and its output can be seamlessly included using
 using a different template to create your thesis, take a look at the end
 of this README.
 
-Currently, the PDF and gitbook versions are fully-functional. The word
-and epub versions are developmental, have no templates behind them, and
-are essentially calls to the appropriate functions in bookdown.
+Currently, only the PDF version is fully-functional. The word and epub
+versions are developmental, have no templates behind them, and are
+essentially calls to the appropriate functions in bookdown. You can view
+outputs for the different versions of gaelsdown here:
 
-If you are new to working with `bookdown`/`rmarkdown`, please read over
-the documentation available in the `gitbook` template at
+-   [PDF](https://raw.githubusercontent.com/eugenesit/gaelsdown_book/master/_book/thesis.pdf)
+-   [Word](https://github.com/eugenesit/gaelsdown_book/raw/master/_book/thesis.docx)
+-   [ePub](https://github.com/eugenesit/gaelsdown_book/raw/master/_book/thesis.epub)
+
+If you are new to working with `bookdown`/`rmarkdown`, you can find
+documentation available in the thesisdown `gitbook` template at
 <https://ismayc.github.io/thesisdown_book>.
 
-The current output for the four versions of gaelsdown can be found here:
-
--   [PDF](https://github.com/ismayc/thesisdown_book/blob/master/thesis.pdf)
-    (Generating LaTeX file is available
-    [here](https://github.com/ismayc/thesisdown_book/blob/master/thesis.tex)
-    with other files in the [book
-    directory](https://github.com/ismayc/thesisdown_book/tree/master).)
--   [Word](https://github.com/ismayc/thesisdown_book/blob/master/thesis.docx)
--   [ePub](https://github.com/ismayc/thesisdown_book/blob/master/thesis.epub)
--   [gitbook](https://ismayc.github.io/thesisdown_book)
-
-### Using gaelsdown from Eugene’s GitHub
+### Setting up gaelsdown from Eugene’s GitHub
 
 The following instructions are adapted from
 [thesisdown](https://github.com/ismayc/thesisdown), with special thanks
@@ -44,7 +38,7 @@ clarity to the directions below from the [README of his spin-off
 `huskydown`
 package](https://github.com/benmarwick/huskydown/blob/master/README.md).
 
-Using {gaelsdown} has some prerequisites which are described below. To
+Using **gaelsdown** has some prerequisites which are described below. To
 compile PDF documents using **R**, you are going to need to have LaTeX
 installed. By far the easiest way to install LaTeX on any platform is
 with the [tinytex](https://yihui.name/tinytex/) R package:
@@ -63,23 +57,23 @@ to knit as well. Here is one such example of how to do so:
 tinytex::tlmgr_install("babel-portuges")
 ```
 
-To use {gaelsdown} from
+To use **gaelsdown** from
 [RStudio](https://www.rstudio.com/products/rstudio/download/):
 
 1.  Ensure that you have already installed LaTeX and the fonts described
     above, and are using the latest version of
     [RStudio](https://www.rstudio.com/products/rstudio/download/). You
-    can use `thesisdown` without RStudio. For example, you can write the
+    can use `gaelsdown` without RStudio. For example, you can write the
     Rmd files in your favorite text editor
     (e.g. [Atom](https://atom.io/),
     [Notepad++](https://notepad-plus-plus.org/), or
-    [typora](https://typora.io/)). RStudio is probably the easiest tool
+    [Typora](https://typora.io/)). RStudio is probably the easiest tool
     for writing both R code and text in your thesis. It also provides a
     nice way to build your thesis while editing. We’ll proceed assuming
     that you have decided to use the RStudio workflow.
 
-2.  Install the {bookdown} and {gaelsdown} packages. Note that
-    {gaelsdown} is not available on CRAN at the moment and that’s why
+2.  Install the `bookdown` and `gaelsdown` packages. Note that
+    `gaelsdown` is not available on CRAN at the moment and that’s why
     `install.packages("gaelsdown")` won’t work. Use
     `devtools::install_github()` as shown below instead to install the
     package.
@@ -94,17 +88,17 @@ To use {gaelsdown} from
           Note that you may need to restart RStudio at this point for
 the following dialog to show up.
 
-3.  Get started with the {gaelsdown} template. There are two options for
-    doing so.
+3.  Get started with the **gaelsdown** template. There are two options
+    for doing so.
 
--   3a) **RECOMMENDED** Create a new RStudio project with a {gaelsdown}
-    template.
+-   3a) **RECOMMENDED** Create a new RStudio project with a
+    **gaelsdown** template.
 
     In RStudio, click on **File** &gt; **New Project** &gt; **New
-    Directory**. Then select **Thesis Project using thesisdown** from
-    the dropdown that will look something like the image below. You’ll
-    see the graduation cap as the icon on the left for the appropriate
-    project type.
+    Directory**. Then select **Queen’s Thesis Project using gaelsdown**
+    from the dropdown that will look something like the image below.
+    You’ll see the Q as the icon on the left for the appropriate project
+    type.
 
     ![](https://raw.githubusercontent.com/eugenesit/gaelsdown/master/docs/reference/figures/project_option.png)
 
@@ -119,9 +113,10 @@ the following dialog to show up.
     directories to get knitting to work and has some other limitations
     as well. That’s why step 3a is recommended.
 
--   3b) Use the **New R Markdown** dialog to select **Thesis**:
+-   3b) Use the **New R Markdown** dialog to select **Queen’s University
+    Thesis**:
 
-    ![](https://raw.githubusercontent.com/eugenesit/gaelsdown/master/docs/reference/figures/markdown_reference.png)
+    ![](https://raw.githubusercontent.com/eugenesit/gaelsdown/master/docs/reference/figures/markdown_template.png)
 
     Note that this will currently only **Knit** if you name the
     directory `index` as shown above. This guarantees that `index.html`
@@ -193,7 +188,9 @@ citations.
 
 Specific style files for bibliographies should be stored here. A good
 source for citation styles is
-<https://github.com/citation-style-language/styles#readme>.
+<https://github.com/citation-style-language/styles#readme>. Note: Some
+older .csl files may be missing the `hanging-indent = true` line in the
+`<bibliography>` tag.
 
 ### `figure/` and `data/`
 
@@ -203,23 +200,22 @@ details on cross-referencing items using R Markdown.
 
 ## Customizing a template for your institution
 
-In an ideal world, one package would support a variety of different
-LaTeX templates from a wide range of institutions and we’d love to get
-it there at some point. Until that time, realize that gaelsdown was
-designed to only work with the Queen’s University LaTeX template, while
-thesisdown was created for the Reed College LaTeX template. Others have
-adapted the package to work with their institutions! Here are some that
-have customized it to fit their needs. It is recommended you review how
-they changed the files by comparing their repositories to this one and
-then make tweaks to yours as needed. Feel free to file an issue on the
-[thesisdown repo](https://github.com/ismayc/thesisdown) if you have
-questions/troubles.
+In an ideal world, Chester’s
+[thesisdown](https://github.com/ismayc/thesisdown) would support a
+variety of different LaTeX templates from a wide range of institutions
+and we’d love to get it there at some point. Until that time, folks have
+been busy adapting the package to work with their institutions! Here are
+some that have customized it to fit their needs. You may find one that
+fits your needs, and if not, it is recommended you review how they
+changed the files by comparing their repositories to this one and then
+make tweaks to yours as needed. Feel free to file an issue on this repo
+if you have questions/troubles.
 
 Have you created a thesisdown template for your institution and would
 like to have it included here? Make a PR [similar to the commit done to
 include
 `jayhawkdown`](https://github.com/ismayc/thesisdown/commit/760113a076767cf67b6e22339e398bd3f15305c5).
-I’ll review it and merge it in. Let’s keep the list going!
+for Chester to review. Let’s keep the list going!
 
 | College/University                                          | Repository                                                                                    | Based on                                                        |
 |:------------------------------------------------------------|:----------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
