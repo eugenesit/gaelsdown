@@ -194,7 +194,7 @@ citations.
 
 Specific style files for bibliographies should be stored here. A good
 source for citation styles is
-<https://github.com/citation-style-language/styles#readme>. Note: Some
+<https://github.com/citation-style-language/styles#readme>. Note: Some 
 older .csl files may be missing the `hanging-indent = true` line in the
 `<bibliography>` tag.
 
