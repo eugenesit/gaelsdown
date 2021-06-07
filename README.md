@@ -156,9 +156,10 @@ thesis:
 
 ### `_bookdown.yml`
 
-This is the main configuration file for your thesis. You can change the
-name of your outputted file here for your thesis and other options about
-your thesis here.
+This is the main configuration file for your thesis. It determines what
+Rmd files are included in the output, and in what order. Arrange the
+order of your chapters in this file and ensure that the names match the
+names in your folders.
 
 ### `index.Rmd`
 
@@ -214,7 +215,7 @@ if you have questions/troubles.
 Have you created a thesisdown template for your institution and would
 like to have it included here? Make a PR [similar to the commit done to
 include
-`jayhawkdown`](https://github.com/ismayc/thesisdown/commit/760113a076767cf67b6e22339e398bd3f15305c5).
+`jayhawkdown`](https://github.com/ismayc/thesisdown/commit/760113a076767cf67b6e22339e398bd3f15305c5)
 for Chester to review. Let’s keep the list going!
 
 | College/University                                          | Repository                                                                                    | Based on                                                        |
