@@ -26,6 +26,7 @@
 \usepackage{graphicx}                  % including graphics
 \usepackage{amsmath}                   % math notation
 \numberwithin{equation}{chapter}       % equations will be numbered by section
+\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
 
 \usepackage{amsthm}                    % theorem notation
 \usepackage{cases}                     % to make numbered cases (equations)
@@ -45,6 +46,7 @@
 \preto\longtable{\par\singlespacing}
 \preto\caption{\par\singlespacing}
 
+% packages to support kableExtra
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{wrapfig}
@@ -66,14 +68,6 @@
 
 % for formatting Table of Contents entry, example: Chapter 1 Introduction
 \usepackage{tocloft}
-\renewcommand{\cftchappresnum}{Chapter }
-\renewcommand{\cftchapaftersnum}{:}
-\renewcommand{\cftchapnumwidth}{7em}
-
-% for formatting Table of Contents entry for Appendix, example: Appendix 1: Stuff
-\newcommand*\updatechaptername{%
-   \addtocontents{toc}{\protect\renewcommand*\protect\cftchappresnum{Appendix }}
-}
 
 % CII (Thanks, Hadley!)
 % Use ref for internal links
@@ -94,6 +88,14 @@
 % h/t coatless
 $if(highlighting-macros)$
   $highlighting-macros$
+% added by ESS
+% the following adds linebreaking to codeboxes and sets linespacing in these boxes to 1
+% this is necessary due to the use of \doublespacing for the Queen's University template
+  \usepackage{fvextra}
+  \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines,baselinestretch=1,commandchars=\\\{\},
+  breaksymbolleft={},breakindentnchars=6
+  }
 $endif$
 
 % From {rticles}

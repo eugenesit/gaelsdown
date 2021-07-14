@@ -1,54 +1,47 @@
 ---
 author: 'Your R. Name'
 institution: 'Queen''s University'
-dept: 'Department of Research'
-degree: 'Master of Science'
+dept: 'Department of Excellence'
+degree: 'Winner of Science'
 submitdate: 'May 20xx'
 copyrightyear: '20xx'
 title: 'My Thesis'
-knit: bookdown::render_book
-site: bookdown::bookdown_site
-# For rendering as a word document, you may need to allow html
-#always_allow_html: true
 output: 
-  gaelsdown::thesis_pdf: default
-#  gaelsdown::thesis_gitbook: default
+#  gaelsdown::thesis_pdf: default
+  gaelsdown::thesis_gitbook: default
 #  gaelsdown::thesis_word: default
 #  gaelsdown::thesis_epub: default
 # If you are creating a PDF you'll need to write your preliminary content
 # (e.g., abstract, acknowledgements) here or use code similar to line 22-23
 # for the .RMD files. If you are NOT producing a PDF, you can delete or silence
 # lines 22-46 in this YAML header.
-abstract: |
-  '`r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = "\n  ")`'
+abstract: '`r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = "\n  ")`'
 # If you'd rather include the preliminary content in files
 # instead of inline like below, use a command like that for
-# the abstract above.  Note that a tab is needed on the
-# line after the `|`.
-# layabstract: |
-#   Abstract for general audiences. Optional.
-# coauthorship: |
-#   These organisms should also be credited for the effort.
+# the abstract above. Extra spaces will cause issues with
+# knitting into non-PDF formats so be careful with those!
+#layabstract: |
+# Abstract for general audiences. Optional.
+#coauthorship: |
+# These organisms should also be credited for the effort.
 acknowledgements: |
-  Thank your pals. Thank your profs. Thank your mom.
-  \newline They're so proud of you.
-# abbreviations: |
-#   If you used a Bunch of Words (BoW) which Aren't Really Words (ARW),
-#   explain yourself now. Symbols too, you #@$%!
-# nomenclature: |
-#   Words that are words but for which you need to specify meaning.
-
-# To include other LaTeX packages uncomment and add below
+ Thank your pals. Thank your profs. Thank your mom.
+#abbreviations: |
+# If you used a Bunch of Words (BoW) which Aren't Really Words (ARW),
+# explain yourself now. Symbols too, you #@$%!
+#nomenclature: |
+# Words that are words but for which you need to specify meaning.
+# To include other LaTeX packages uncomment and add those below
 #header-includes:
-
-# for list of tables (lot) and list of figures (lof)
-lot: true
-lof: true
-
 # Specify the location of the bibliography below
 bibliography: bib/thesis.bib
 # Download your specific csl file and refer to it in the line below.
 csl: csl/apa.csl
+lot: true
+lof: true
+always_allow_html: true
+knit: bookdown::render_book
+site: bookdown::bookdown_site
 ---
 
 <!--
@@ -84,36 +77,52 @@ There are two options:
 1. Name your chapter files in the order in which you want them to appear (e.g., 01-Intro, 02-Data, 03-Conclusions). 
 2. Otherwise, you can specify the order in which they appear in the _bookdown.yml (for PDF only).
 
-Do not include 00(two-hyphens)prelim.Rmd and 00-abstract.Rmd in the YAML file--they are handled in the YAML above differently for the PDF version.
+Do not include 00-abstract.Rmd in the YAML file--it is handled in the YAML above differently for the PDF version.
 -->
 
 <!-- The {.unnumbered} option here means that the introduction will be "Chapter 0." You can also use {-} for no numbers
 on chapters.
 -->
 
-# Introduction {.unnumbered}
+# Introduction
 
-Welcome to the _R Markdown_ thesis template. This template is based on (and in many places copied directly from) the Reed College LaTeX template, but hopefully it will provide a nicer interface for those that have never used TeX or LaTeX before.  Using _R Markdown_ will also allow you to easily keep track of your analyses in **R** chunks of code, with the resulting plots and output included as well.  The hope is this _R Markdown_ template gets you in the habit of doing reproducible research, which benefits you long-term as a researcher, but also will greatly help anyone that is trying to reproduce or build onto your results down the road.
+## Welcome
 
-Hopefully, you won't have much of a learning period to go through and you will reap the benefits of a nicely formatted thesis.  The use of LaTeX in combination with _Markdown_ is more consistent than the output of a word processor, much less prone to corruption or crashing, and the resulting file is smaller than a Word file. While you may have never had problems using Word in the past, your thesis is likely going to be about twice as large and complex as anything you've written before, taxing Word's capabilities.  After working with _Markdown_ and **R** together for a few weeks, we are confident this will be your reporting style of choice going forward.
+Welcome to the **gaelsdown** guide! This document is intended to get you up and running with writing your thesis in R markdown so that it can be published in a variety of formats, most importantly a .pdf with formatting specifications in the TeX language.
 
-<!-- 
-If you're still on the fence about using _R Markdown_, check out the resource for newbies available at <https://ismayc.github.io/rbasics-book/> or email us at <data@reed.edu>. 
--->
+In this **introduction chapter**, I'll go through the benefits of adopting **gaelsdown** into your writing process and what to expect, then explain the basics of how you get from a R markdown to a formatted pdf. Then, in the **first chapter** of the guide, I'll provide you with all the basic tools to put together a document with formatting, figures and tables, and a structure appropriate to your thesis. In the **second chapter**, I'll get into some of the more advanced methods for figures and tables, specifying formatting inline, and more. Finally, in the **third chapter**, I'll go over some common issues and how you can address them, as well as providing more resources and approaches for troubleshooting.
 
-\clearpage
+## Motivation
 
-**Why use it?**
+The purpose of **gaelsdown** is to enable you to write your thesis in R markdown so that you can focus on the content of your thesis. With R markdown, you can insert code for figures, tables, and references at ease, then transform the markdown file into a finished, formatted document that meets the specifications provided by the School of Graduate Studies. This is a departure from what may be a more familiar approach of using R to generate tables and figures separately, then inserting those into a "What-You-See-Is-What-You-Get" (WYSIWYG) editor like Microsoft Word.
 
-_R Markdown_ creates a simple and straightforward way to interface with the beauty of LaTeX.  Packages have been written in **R** to work directly with LaTeX to produce nicely formatting tables and paragraphs. In addition to creating a user friendly interface to LaTeX, _R Markdown_ also allows you to read in your data, to analyze it and to visualize it using **R** functions, and also to provide the documentation and commentary on the results of your project.  Further, it allows for **R** results to be passed inline to the commentary of your results.  You'll see more on this later.  
+There's a number of **advantages** to this approach over using a WYSIWYG editor, including:
 
-<!-- 
-Having your code and commentary all together in one place has a plethora of benefits!
--->
+- Your R code and writing are streamlined into one document, so that changes to figures and tables are automatically integrated whenever you knit your document, and the bibliography and table of contents are automatically generated.
+- R markdown is a much more lightweight format, which reduces the load on your computer significantly if your thesis has hundreds of pages and includes many figures.
+- The files making up your thesis are in plain text formats that can be easily transferred between platforms and require only free, open source software.
+- By using \LaTeX\ to generate your document, you have access to a wide range of packages to support different types of mathematical and scientific formulas and a professional-quality typesetting engine.
+- Many journals make .tex templates available for authors, which can help with submission. There are also several options for converting from a LaTeX document to a Word-compatible format.
+- If you're writing a thesis for Queen's University, the formatting of the pdf output already conforms to the specifications that the school has published. If you're writing for another school, or if you'd like to change some of the formatting, changes can be made in one place that apply to the whole document.
 
-**Who should use it?**
+However, there are some potential challenges with writing your thesis in R markdown, especially if this is a new approach for you. This guide will help with avoiding or anticipating some of these challenges, but be aware of the following:
 
-Anyone who needs to use data analysis, math, tables, a lot of figures, complex cross-references, or who just cares about the final appearance of their document should use _R Markdown_. Of particular use should be anyone in the sciences, but the user-friendly nature of _Markdown_ and its ability to keep track of and easily include figures, automatically generate a table of contents, index, references, table of figures, etc. should make it of great benefit to nearly anyone writing a thesis project.
+- Introducing formatting changes into a LaTeX document is a different process than in a WYSIWYG editor, and involves a bit of a learning curve. However, by using a template such as **gaelsdown**, you can avoid much of the LaTeX editing and focus on the content of your thesis.
+- **gaelsdown** relies on a few different programs when it knits together your document, which means there's a few different steps at which an error can be introduced. I'll explain what these steps are, and tips for addressing any issues encountered at each step.
 
-**For additional help with bookdown** 
-Please visit [the free online bookdown reference guide](https://bookdown.org/yihui/bookdown/).
+## Structure
+
+To understand how **gaelsdown** and similar template packages work, you need to understand the different software involved:
+
+- **knitr** converts your R markdown file (.Rmd) into a markdown file (.md). The different between a R markdown file is that it includes R code chunks that need to be rendered as images for them to be markdown compatible.
+- **pandoc** is included with your RStudio install and is capable of converting between a large number of different text formats, including markdown, Word (.docx), web browser compatible (.html), and LaTeX (.tex).
+- **LaTeX** renders a typeset format such as PDF from .tex files—if you knit into another format such as gitbook or Word, LaTeX will not have been involved.
+
+Here's a visualization of how it all flows together:
+
+
+
+If you knitted this document locally from the **gaelsdown** package and watched the console carefully, then you've already seen all these steps in action! You can run the knit again if you want to review it.
+
+## Acknowledgements
+
